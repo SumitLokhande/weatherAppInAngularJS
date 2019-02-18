@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="weatherAppMod">
+<head>
+
+	<title>Weather</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="weatherAppMod.js"></script>
+<script type="text/javascript" src="weatherAppCtrl.js"></script>
+<script type="text/javascript"src="weatherAppServ.js"></script>
+
+</head>
+<body class="weather-body">
+<div ng-controller="weatherAppCtrl">
+<div class="weather-search">
+	<input type="text" name="" ng-model="cityName"  class="weather-input" placeholder="Your City Name">
+<!-- 	{{name}} -->
+		
+	<input type="submit" name="" value="Search" ng-click="callWeather(cityName)" class="weather-submit">
+</div>
+	<div ng-if="ContObj">
+	<b ng-if="ContObj.name">Weather In {{ContObj.name}},{{ContObj.sys.country}}</b>
+	<br>
+	
+
+	<div class="weather-temp">
+	<img ng-src="http://openweathermap.org/img/w/{{ContObj.weather[0].icon}}.png">
+	<span ng-if="ContObj.main.temp">{{ContObj.main.temp-273.15 | limitTo:2}} &#186 C</span>
+	</div>
+	<div ng-if="ContObj">
+	{{ContObj.weather[0].description}}
+	<br>
+	<span>{{ date | date:"HH:mm MMM,dd"}}</span>
+	</div>
+
+	
+ <table ng-if="ContObj">
+	<tbody>
+	<tr>
+		<td>Wind</td>
+		<td>Last Name</td>
+	</tr>
+	<tr>
+		<td>Cloudiness</td>
+		<td>{{ContObj.weather[0].description}}</td>
+	</tr>
+	<tr>
+		<td>Pressure</td>
+		<td>{{ContObj.main.grnd_level}} hpa</td>
+	</tr>
+	<tr>
+		<td>Humidity</td>
+		<td>{{ContObj.main.humidity}} &#37</td>
+	</tr>
+	<tr>
+		<td>Sunrise</td>
+		<td>{{ContObj.sys.sunrise | date:'h:mm:ss a'}}</td>
+	</tr>
+	<tr>
+		<td>Sunset</td>
+		<td>{{ContObj.sys.sunset | date:'h:mm:ss a'}}</td>
+	</tr>
+	
+	
+	<tr>
+		<td>Geo coords</td>
+		<td><a class="weather-coord" ng-href="http://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat={{ContObj.coord.lat}}&lon={{ContObj.coord.lon}}&zoom=8">[{{ContObj.coord.lat}},{{ContObj.coord.lon}}]</a></td>
+	</tr>
+	
+	</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/**{
+	box-sizing: border-box;
+}
+*/
+table { 
+  max-width: 30%; 
+  border-collapse: collapse; 
+
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+.weather-temp{
+	display: inline;
+	font-weight: bold; 
+	font-size: 30px;
+	/*border: 2px solid black;*/
+	display: flex;
+}
+.weather-input{
+	    max-width: 30%;
+    padding: 8px 20px;
+    margin: auto;
+    display: inline-block;
+    border: 1px solid #e65c00;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.weather-submit{
+	max-width: 30%;
+    padding: 8px 20px;
+   margin: auto;
+    display: inline-block;
+    border: 1px solid #e65c00;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #e65c00
+}
+.weather-search{
+	 margin: 2% 37%;
+    width: 37%;
+    padding: 10px;
+}
+a{
+	color:#e65c00;
+	text-decoration: none;
+}
+
+.weather-body{
+	background-image:url("http://www.weatherback.com/img/weather/sunset-background.jpg"); 
+	background-size: cover;
+}
